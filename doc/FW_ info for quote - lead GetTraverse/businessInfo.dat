@@ -1,0 +1,83 @@
+#!/bin/bash
+#Copyright Chris Johnson, 2019
+echo Collier/Lee/Charlotte New Business Info!
+
+
+
+#THIS SCRIPT FETCHES THE BUSINESS REGISTRATION INFORMATION FILES FROM THE SUNBIZ WEBSITE,
+#FROM THE START DATE TO THE CURRENT DATE. ALL ENTRIES ARE CURRENTLY STORED IN THE SAME DIRECTORY #AS THE SCRIPT
+
+#ENTER THE START DATE BELOW
+STARTYEAR=2020    
+STARTMONTH=2
+STARTDAY=22
+URL="ftp://ftp.dos.state.fl.us/public/doc/cor/"  #BASE URL
+YEAR=$(date +%Y)    #FETCH CURRENT YEAR
+MONTH=$(date +%_m)   #FETCH CURRENT MONTH
+DAY=$(date +%_d)		#FETCH CURRENT DAY
+echo $STARTYEAR$STARTMONTH$STARTDAY
+
+echo $YEAR
+echo $MONTH
+echo $DAY
+
+Y=$STARTYEAR
+M=$STARTMONTH
+D=$STARTDAY
+
+let DAY+=1
+
+RUNNING=2
+echo $RUNNING
+
+while [ $RUNNING -gt 1 ]
+do
+	if [ $D -gt 31 ]
+	then	
+		let M+=1
+		let D=1
+	fi
+	if [ $M -gt 12 ]
+	then
+		let Y+=1
+		let M=1
+	fi
+	if [ $Y -eq $YEAR ]
+	then
+		if [ $M -eq $MONTH ]
+		then
+			if [ $D -eq $DAY ]
+			then
+				let RUNNING=0
+			fi
+		fi
+	fi
+	if [ $D -lt 10 ]
+	then
+		DA="0"$D
+	else
+		DA=$D
+	fi
+	if [ $M -lt 10 ]
+	then 
+		MO="0"$M
+	else
+		MO=$MO
+	fi
+	PA=$URL$Y$MO$DA"c.txt"
+	PAHOME="./"$Y$MO$DA"c.txt"
+	if [ -f "$PAHOME" ]
+	then
+		echo "ALREADY DOWNLOADED   " 
+	else
+		wget -c --tries=3 --read-timeout=10 "${PA}"
+		echo "$PAHOME"
+	fi
+	let D+=1
+done
+echo DONE DONE DONE
+ 
+$ = wget "${PA}"	#DOWNLOAD FILE
+
+make #compile
+./a.out		#run parser + search function

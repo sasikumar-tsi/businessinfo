@@ -1,0 +1,11 @@
+a.out: driver.o business.o businessList.o
+	g++ driver.o business.o businessList.o
+driver.o: driver.cpp
+	g++ -c driver.cpp
+business.o: business.h business.cpp
+	g++ -c business.cpp
+businessList.o: businessList.h businessList.cpp
+	g++ -c businessList.cpp
+clean:
+	rm *.o
+	rm a.out
