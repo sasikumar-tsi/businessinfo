@@ -37,7 +37,7 @@
 	<script src="http://code.jquery.com/ui/1.11.4/jquery-ui.min.js"></script>
 <script src="https://kidsysco.github.io/jquery-ui-month-picker/MonthPicker.min.js"></script>
 	 <script>
-	$(function() {
+	 $(document).ready(function() { 
 	$('.monthYearPicker').datepicker({
 		changeMonth: true,
 		changeYear: true,
@@ -56,19 +56,22 @@
 	
 	
 
-	$("#submit").click(function() {
-		// To Display progress bar
-		$("#loading").show();
+	$('#submit3').click(function() {
+      
+		
+		 $("#form2").submit(); 
+		 alert("fffff");
+		/*$("#loading").show();
 		var month_year = $("#month_year").val();
 		
-		// Transfering form information to different page without page refresh
+		
 		$.post("/admin/dashboard/getfile", {
 		month_year: month_year,
 		"_token": "{{ csrf_token() }}",
 		}, function(status) {
 		$("#loading").hide(); // To Hide progress bar
-		alert(status);
-		});
+		
+		});*/
 	});
 
 });

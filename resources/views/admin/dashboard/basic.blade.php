@@ -4,15 +4,15 @@
 
 
 
-    <div class="main-content" id="dashboardPage">
+    <div class="main-content" >
         <div class="row">
-           <form id="form" action="" method="post">
-
+           <form id="form2" action="/admin/dashboard/getfile" method="post">
+ @csrf
          <label for="myDate">Date :</label>
 <input name="myDate" class="monthYearPicker" id="month_year" />
         
 		
-		<input type="button" id="submit" name="submit" value="Submit" />
+		<input type="submit" id="submit" name="submit" value="Submit"  />
 
         </div>
        
