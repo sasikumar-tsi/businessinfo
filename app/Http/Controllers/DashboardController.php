@@ -5,6 +5,7 @@ use Illuminate\Support\Str;
 use App\Exports\BusinessExport;
 use Maatwebsite\Excel\Facades\Excel;
 use Carbon\Carbon;
+use Illuminate\Http\Request;
 class DashboardController extends Controller
 {
     public function index() 
@@ -27,9 +28,9 @@ class DashboardController extends Controller
         return view('admin.dashboard.finance');
     }
 	
-	public function getfile() 
+	public function getfile(Request $request) 
     {
-		
+		 $month_year= $request->input('month_year');
 
 			//$contents = Storage::get('20200601.txt');
 			$url='ftp://ftp.dos.state.fl.us/public/doc/cor/';

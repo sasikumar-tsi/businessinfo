@@ -39,11 +39,6 @@ return [
                     'title' => 'All Users',
                     'link' => '/admin/users',
                     'active' => 'admin/users',
-                ],
-                [
-                    'title' => 'User Profile',
-                    'link' => '/admin/users/1',
-                    'active' => 'admin/users/*',
                 ]
             ]
         ],

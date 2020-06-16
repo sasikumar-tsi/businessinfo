@@ -45,7 +45,7 @@ Route::group([
         'as' => 'admin.dashboard.finance', 'uses' => 'DashboardController@finance'
     ]);
 	
-	 Route::get('/dashboard/getfile', [
+	 Route::post('/dashboard/getfile', [
         'as' => 'admin.dashboard.getfile', 'uses' => 'DashboardController@getfile'
     ]);
 
@@ -53,6 +53,7 @@ Route::group([
  Route::get('/dashboard/export', [
         'as' => 'admin.dashboard.export', 'uses' => 'DashboardController@export'
     ]);
+	
     // Layouts
     //----------------------------------
 
