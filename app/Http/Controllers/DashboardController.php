@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 use App\Exports\BusinessExport;
 use Maatwebsite\Excel\Facades\Excel;
-
+use Carbon\Carbon;
 class DashboardController extends Controller
 {
     public function index() 
@@ -29,12 +29,51 @@ class DashboardController extends Controller
 	
 	public function getfile() 
     {
-		$file = fopen(storage_path("app/20200601c.txt"), "r");
+		
+
+			//$contents = Storage::get('20200601.txt');
+			$url='ftp://ftp.dos.state.fl.us/public/doc/cor/';
+			$month = '2020-03';
+			$start = Carbon::parse($month)->startOfMonth();
+			$end = Carbon::parse($month)->endOfMonth();
+
+			$collection = collect();
+			while ($start->lte($end)) {
+				
+				$date_formate=$start->format('Ymd'); 
+				 $full_path=$date_formate."c.txt";	
+				
+				
+				$exists = Storage::disk('local')->has($full_path);
+
+				if($exists){
+					$datas=$this->listFile($full_path);	
+					$collection->push($datas);
+				
+				}
+				 $start->addDay();
+			}
+			
+			$collapsed = $collection->collapse()->toArray();
+			//$collapsed->all();
+			
+
+			//dd($collapsed);
+			
+			return Excel::download(new BusinessExport($collapsed), 'business.xlsx');
+			
+			die;
+			
+			
+	}
+	public function listFile($file_path) 
+    {
+		
 
 			//$contents = Storage::get('20200601.txt');
 			
 			$datas	= array();
-
+			$file = fopen(storage_path("app/".$file_path), "r");
 			while(!feof($file)) {
 				$line = fgets($file);
 			
@@ -82,15 +121,16 @@ class DashboardController extends Controller
 
 			fclose($file);
 			
-			
-			echo '<pre>';
-			print_r($datas);
-			echo '</pre>';
+			return $datas;
 	}
-	
 	
 	public function export() 
     {
-        return Excel::download(new BusinessExport, 'business.xlsx');
+		$array=array(
+		'id'=>1,
+		'name'=>'Test',
+		
+		);
+        return Excel::download(new BusinessExport($array), 'business.xlsx');
     }
 }

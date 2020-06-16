@@ -48,12 +48,13 @@ class ExportTxtFile extends Command
 		$day=date('d');
 	 
 		
-			$month = '2020-06';
+			$month = '2020-01';
 			$start = Carbon::parse($month)->startOfMonth();
 			$end = Carbon::parse($month)->endOfMonth();
 
 			$dates = [];
 			while ($start->lte($end)) {
+				
 				$date_formate=$start->format('Ymd'); 
 				$full_path=$url.$date_formate."c.txt";	
 				
