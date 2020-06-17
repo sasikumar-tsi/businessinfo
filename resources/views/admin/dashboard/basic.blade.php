@@ -6,10 +6,11 @@
 
     <div class="main-content" >
         <div class="row">
+		 <div class="col-md-12 col-lg-6">
            <form id="form2" action="/admin/dashboard/getfile" method="post">
  @csrf
-         <label for="myDate">Date :</label>
-<input name="myDate" class="monthYearPicker" id="month_year" />
+         <label for="myDate">Month & Year :</label>
+<input name="myDate" class="monthYearPicker" id="month_year" autocomplete="off" />
         
 		
 		<input type="submit" id="submit" name="submit" value="Submit"  />
@@ -18,6 +19,7 @@
        
        </form>
 
+    </div>
     </div>
 	
 	

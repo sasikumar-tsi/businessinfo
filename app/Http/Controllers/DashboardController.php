@@ -31,11 +31,12 @@ class DashboardController extends Controller
 	public function getfile(Request $request) 
     {
 		
-		 $month_year= $request->input('month_year');
+		 $month= $request->input('month_year');
 
-			//$contents = Storage::get('20200601.txt');
+
+		//\Artisan::call('ExportTxtFile', ['--year' => '2019-12']);  
 			$url='ftp://ftp.dos.state.fl.us/public/doc/cor/';
-			$month = '2020-03';
+			//$month = '2020-03';
 			$start = Carbon::parse($month)->startOfMonth();
 			$end = Carbon::parse($month)->endOfMonth();
 

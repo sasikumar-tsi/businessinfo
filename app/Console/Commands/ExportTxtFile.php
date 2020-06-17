@@ -13,7 +13,7 @@ class ExportTxtFile extends Command
      *
      * @var string
      */
-    protected $signature = 'ExportTxtFile';
+    protected $signature = 'ExportTxtFile {--year}';
 
     /**
      * The console command description.
@@ -39,16 +39,18 @@ class ExportTxtFile extends Command
      */
     public function handle()
     {
-       
+		 $month_year 		= $this->option('year');
+      
 	  // $url='ftp://ftp.dos.state.fl.us/public/doc/cor/20200417c.txt';
 		$url='ftp://ftp.dos.state.fl.us/public/doc/cor/';
 	 	 
-		$year=date('Y');
+		 $year=date('Y');
 		$month=date('m');
-		$day=date('d');
+		//$day=date('d');
 	 
-		
-			$month = '2020-01';
+		 $month			=	(isset($month_year) && !empty($month_year))?$month_year:$year.'-'.$month;
+	
+			//$month = '2020-01';
 			$start = Carbon::parse($month)->startOfMonth();
 			$end = Carbon::parse($month)->endOfMonth();
 

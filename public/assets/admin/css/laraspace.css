@@ -55,7 +55,10 @@ html {
 @-ms-viewport {
   width: device-width;
 }
-
+h1, h2, h3, h4, h5, h6 {
+    color: #fff;
+    font-weight: normal;
+}
 article, aside, dialog, figcaption, figure, footer, header, hgroup, main, nav, section {
   display: block;
 }
@@ -31157,7 +31160,7 @@ body {
 }
 
 h1, h2, h3, h4, h5, h6 {
-  color: #333;
+  color: #fff;
   font-weight: normal;
 }
 

@@ -11,6 +11,11 @@
 
     @include('admin.layouts.partials.favicons')
     @yield('styles')
+	<style>
+	h1, h2, h3, h4, h5, h6 {
+    color: #fff;
+    font-weight: normal;
+}</style>
 </head>
 <body class="layout-default skin-default">
     @include('admin.layouts.partials.laraspace-notifs')
@@ -23,9 +28,7 @@
         @yield('content')
 
         @include('admin.layouts.partials.footer')
-        @if(config('laraspace.skintools'))
-            @include('admin.layouts.partials.skintools')
-        @endif
+      
     </div>
 <link href="http://code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.min.css" rel="stylesheet" type="text/css" />
 

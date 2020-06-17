@@ -18,7 +18,7 @@ return [
     'sidebar' => [
         [
             'title' => 'Dashboard',
-            'link' => '#',
+            'link' => 'admin/dashboard/basic',
             'active' => 'admin/dashboard*',
             'icon' => 'icon-fa icon-fa-dashboard',
             
