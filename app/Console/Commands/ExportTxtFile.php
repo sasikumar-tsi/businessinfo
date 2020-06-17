@@ -50,7 +50,7 @@ class ExportTxtFile extends Command
 	 
 		 $month			=	(isset($month_year) && !empty($month_year))?$month_year:$year.'-'.$month;
 	
-			//$month = '2020-01';
+			$month = '2018-04';
 			$start = Carbon::parse($month)->startOfMonth();
 			$end = Carbon::parse($month)->endOfMonth();
 

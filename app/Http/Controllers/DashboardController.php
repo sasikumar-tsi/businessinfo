@@ -33,7 +33,6 @@ class DashboardController extends Controller
 		
 		 $month= $request->input('month_year');
 
-
 		//\Artisan::call('ExportTxtFile', ['--year' => '2019-12']);  
 			$url='ftp://ftp.dos.state.fl.us/public/doc/cor/';
 			//$month = '2020-03';
