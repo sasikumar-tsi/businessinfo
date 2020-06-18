@@ -9,7 +9,8 @@
 */
 
 Route::get('/', [
-    'as' => 'home', 'uses' => 'FrontendController@home'
+    //'as' => 'home', 'uses' => 'FrontendController@home'
+    'as' => 'home', 'uses' => 'AuthController@login'
 ]);
 
 /*

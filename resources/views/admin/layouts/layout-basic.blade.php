@@ -31,6 +31,7 @@
       
     </div>
 <link href="http://code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.min.css" rel="stylesheet" type="text/css" />
+<script src="https://code.jquery.com/jquery-1.11.2.min.js"></script>
 
 <link href="https://kidsysco.github.io/jquery-ui-month-picker/MonthPicker.min.css" rel="stylesheet" type="text/css" />
     <script src="{{mix('/assets/admin/js/core/plugins.js')}}"></script>
@@ -38,9 +39,11 @@
     <script src="{{mix('/assets/admin/js/core/app.js')}}"></script>
 	    
 	<script src="http://code.jquery.com/ui/1.11.4/jquery-ui.min.js"></script>
-<script src="https://kidsysco.github.io/jquery-ui-month-picker/MonthPicker.min.js"></script>
+<script src="https://www.jqueryscript.net/demo/jQuery-Plugin-For-jQuery-UI-Month-Year-Picker-mtz-monthpicker/jquery.mtz.monthpicker.js"></script>
 	 <script>
 	 $(document).ready(function() { 
+	 $('#demo-1').monthpicker({pattern: 'yyyy-mm' });
+
 	$('.monthYearPicker').datepicker({
 		changeMonth: true,
 		changeYear: true,

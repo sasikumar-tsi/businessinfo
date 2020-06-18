@@ -6,14 +6,14 @@ use Illuminate\Console\Command;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Storage;
 use Carbon\Carbon;
-class ExportTxtFile extends Command
+class SingleExportTxtFile extends Command
 {
     /**
      * The name and signature of the console command.
      *
      * @var string
      */
-    protected $signature = 'ExportTxtFile {--year}';
+    protected $signature = 'SingleExportTxtFile {--date}';
 
     /**
      * The console command description.
@@ -39,31 +39,17 @@ class ExportTxtFile extends Command
      */
     public function handle()
     {
-		 $month_year 		= $this->option('year');
+				$month_year 		= $this->option('date');
       
-	  // $url='ftp://ftp.dos.state.fl.us/public/doc/cor/20200417c.txt';
-		$url='ftp://ftp.dos.state.fl.us/public/doc/cor/';
-	 	 
-		 $year=date('Y');
-		$month=date('m');
-		//$day=date('d');
-	 
-		 $month			=	(isset($month_year) && !empty($month_year))?$month_year:$year.'-'.$month;
-	
-			$month = '2018-09';
-			$start = Carbon::parse($month)->startOfMonth();
-			$end = Carbon::parse($month)->endOfMonth();
-
-			$dates = [];
-			while ($start->lte($end)) {
-				
-				$date_formate=$start->format('Ymd'); 
-				$full_path=$url.$date_formate."c.txt";	
+			  // $url='ftp://ftp.dos.state.fl.us/public/doc/cor/20200417c.txt';
+				$url='ftp://ftp.dos.state.fl.us/public/doc/cor/';
+				 
+		        $current_date=date('Ymd');		
+				$full_path=$url.$current_date."c.txt";	
 				
 				$this->getFileContent($full_path,$date_formate);	
 				
-				 $start->addDay();
-			}
+			
 
 	
     }

@@ -96,6 +96,14 @@ class DashboardController extends Controller
 				 $COR_MAIL_ZIP			= Str::substr($line, 460,10);
 				 $COR_MAIL_COUNTRY		= Str::substr($line, 470,02);
 				 $COR_FILE_DATE			= Str::substr($line, 472,8);
+				
+				 
+				 $month			= Str::substr($COR_FILE_DATE, 0,2);
+			
+				 $date			= Str::substr($COR_FILE_DATE, 2,2);
+			
+				 $year			= Str::substr($COR_FILE_DATE, 4,5);
+			
 
 				$datas[]= array(
 				
@@ -115,7 +123,7 @@ class DashboardController extends Controller
 						'COR_MAIL_STATE'     		=> $COR_MAIL_STATE,
 						'COR_MAIL_ZIP'     		    => $COR_MAIL_ZIP,
 						'COR_MAIL_COUNTRY'     		=> $COR_MAIL_COUNTRY,
-						'COR_FILE_DATE'     		=> $COR_FILE_DATE,
+						'COR_FILE_DATE'     		=> $month.'-'.$date.'-'.$year,
 				
 				);
 				
