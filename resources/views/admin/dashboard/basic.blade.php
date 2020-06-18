@@ -13,7 +13,7 @@
 
          <label for="myDate">Month & Year :</label>
 <!--<input name="month_year" class="monthYearPicker" id="month_year" autocomplete="off" />-->
- <input type="text" name="month_year"  id="demo-1" >
+ <input type="text" name="month_year"  id="demo-1" required>
         
 		
 		<input type="submit" id="submit" name="submit" value="Submit"  />
